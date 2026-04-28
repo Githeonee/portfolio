@@ -53,7 +53,7 @@ def kpi_row(df: pd.DataFrame) -> None:
 
 
 def tab_overview(df: pd.DataFrame) -> None:
-    st.subheader("📊 응답자 개요")
+    st.subheader("응답자 개요")
     col1, col2 = st.columns(2)
 
     with col1:
@@ -93,7 +93,7 @@ def tab_overview(df: pd.DataFrame) -> None:
 
 
 def tab_satisfaction(df: pd.DataFrame) -> None:
-    st.subheader("😊 주거 만족도 분석")
+    st.subheader("주거 만족도 분석")
 
     # 만족도 분포 비교
     ct = (pd.crosstab(df['주거형태'], df['만족도그룹'], normalize='index') * 100
@@ -139,7 +139,7 @@ def tab_satisfaction(df: pd.DataFrame) -> None:
 
 
 def tab_housing_search(df: pd.DataFrame) -> None:
-    st.subheader("🔍 주거 탐색 방법")
+    st.subheader("주거 탐색 방법")
 
     order = ['학교·기숙사 배정', '지인 추천', '온라인 플랫폼', '부동산 중개', '기타']
     sr = df['주거지탐색방법'].value_counts().reindex(order).reset_index()
@@ -171,7 +171,7 @@ def tab_housing_search(df: pd.DataFrame) -> None:
 
 
 def tab_cost_correlation(df: pd.DataFrame) -> None:
-    st.subheader("💰 주거비용 × 만족도 상관분석")
+    st.subheader("주거비용 × 만족도 상관분석")
 
     x = df['비용_ord'].dropna()
     y = df.loc[x.index, '주거만족도']
@@ -219,7 +219,7 @@ def tab_cost_correlation(df: pd.DataFrame) -> None:
 
 
 def tab_policy(df: pd.DataFrame) -> None:
-    st.subheader("📋 정책 인지도")
+    st.subheader("정책 인지도")
 
     overall = (df['정책인지도'] == '예').mean() * 100
     dorm_rate = (df.loc[df['주거형태']=='기숙사', '정책인지도']=='예').mean() * 100
@@ -259,7 +259,7 @@ def tab_policy(df: pd.DataFrame) -> None:
 
 
 def main():
-    st.title('🏠 외국인 유학생 주거 불안정 데이터 분석')
+    st.title('외국인 유학생 주거 불안정 데이터 분석')
     st.markdown(
         '> KCI 등재 논문 기반 실증 분석 | 정헌 외 (2025) | 강원대·한림대 유학생 N=69'
     )
